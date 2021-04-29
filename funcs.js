@@ -74,7 +74,7 @@ $(document).ready(function() {
 			opacity: 0,
 			top: '200px'
 		}, 250, () => {
-			$('#arrow').css('top', 0);
+			$('#arrow').css('top', '10px');
 		});
 		$.each(projects, function(index, value) {
 			var	url = "https://github.com/mkarkaus/" + value;
@@ -113,7 +113,6 @@ $(document).ready(function() {
 		});
 		$('#arrow').animate({
 			opacity: 1,
-			top: '10px'
 		}, 1000);
 	});
 });
