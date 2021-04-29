@@ -19,7 +19,6 @@ body {
 	left: -webkit-calc(50% - 12.5vh);
 	left: -moz-calc(50% - 12.5vh);
 	left: calc(50% - 12.5vh);
-	top: 35%;
 	color: white;
 	font-family: Helvetica;
 	font-weight: 900;
@@ -30,7 +29,7 @@ body {
 .idgithub {
 	width: 25vh;
 	height: 7.5vh;
-	position: fixed;
+	position: absolute;
 	left: -webkit-calc(50% - 12.5vh);
 	left: -moz-calc(50% - 12.5vh);
 	left: calc(50% - 12.5vh);
@@ -38,6 +37,39 @@ body {
 	animation: links 1.5s;
 	padding-top: 2vh;
 	padding-bottom: 2vh;
+}
+
+#arrow {
+	position: relative;
+	
+	top: 10px;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 10px solid white;
+	margin: 0 auto;
+	box-sizing: content-box;
+	animation: float 2s ease-in-out infinite;
+}
+#arrow:after {
+	content: "";
+	position: relative;
+	z-index: 1;
+	display: block;
+	box-sizing: content-box;
+	top: -15px;
+	left: -25px;
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 10px solid black;
+}
+
+#description {
+	background-color: white;
+
 }
 
 #github {
@@ -85,11 +117,11 @@ body {
 #github_image {
 	width: 25vh;
 	height: 7.5vh;
-	position: fixed;
+	position: relative;
 	left: -webkit-calc(50% - 12.5vh);
 	left: -moz-calc(50% - 12.5vh);
 	left: calc(50% - 12.5vh);
-	top: 35%;
+	top: 0;
 	animation: links 1.5s;
 }
 
@@ -186,5 +218,17 @@ body {
 	100% {
 		visibility: hidden;
 		opacity: 0;
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(0px);
 	}
 }
