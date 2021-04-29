@@ -133,17 +133,9 @@ body {
 	animation: links 1.25s;
 }
 
-/* @keyframes toBlue {
-	0% { background: rgb(201, 106, 71); }
+#ghhome {
 	
-	100% { background: rgb(128, 128, 172); }
 }
-
-@keyframes toOrange {
-	0% { background: rgb(128, 128, 172); }
-	
-	100% { background: rgb(201, 106, 71); }
-} */
 
 @keyframes github_links {
 	0% {

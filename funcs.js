@@ -67,7 +67,8 @@ $(document).ready(function() {
 
 	var	projects = ["Lem_in", "Filler", "ft_printf", "Fillit", "Libft"];
 
-	$('.idgithub').mouseenter(function() {
+	function openlist()
+	{
 		/* Open the list of projects */
 
 		$('#arrow').animate({
@@ -94,15 +95,14 @@ $(document).ready(function() {
 			$('#' + value).animate({
 				opacity: 1,
 				top: '-10px'
-				// top: parseInt($('.idgithub').css('height')) + 'px'
 			}, (index + 1) * 150);
 		});
-	});
+	}
 
-	$('.rm_list').mouseleave(function() {
+	function closelist()
+	{
 		/* Close the list of projects */
 		$.each(projects, function(index, value) {
-			console.log(index + ' ' + value);
 			$('#' + value).animate({
 				opacity: 0,
 				top: 0
@@ -114,5 +114,48 @@ $(document).ready(function() {
 		$('#arrow').animate({
 			opacity: 1,
 		}, 1000);
-	});
+	}
+
+	function secondclick()
+	{
+		closelist();
+		$('.idgithub').click((event) => {
+			firstclick(event);
+		});
+		setTimeout(() => {
+			$('#ghhome').removeAttr("href");
+		}, 500);
+	}
+
+	function firstclick(event)
+	{
+		event.stopPropagation();
+		openlist();
+		$('.idgithub').off('click');
+		$('body').click(() => {
+			secondclick();
+		});
+		setTimeout(() => {
+			$('#ghhome').attr('href', 'https://www.github.com/mkarkaus');
+		}, 500);	
+	}
+
+	/* Checks if website is opened in touchscreen */
+
+	if (!!('ontouchstart' in window)) {
+
+		$('#ghhome').removeAttr("href");
+		$('.idgithub').click((event) => {
+			firstclick(event);
+		});
+	}
+	else {
+		$('.idgithub').mouseenter(function() {
+			openlist();
+		});
+
+		$('.rm_list').mouseleave(function() {
+			closelist();
+		});
+	}
 });
