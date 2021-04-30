@@ -71,50 +71,58 @@ $(document).ready(function() {
 	{
 		/* Open the list of projects */
 
-		$('#arrow').animate({
-			opacity: 0,
-			top: '200px'
-		}, 250, () => {
-			$('#arrow').css('top', '10px');
-		});
-		$.each(projects, function(index, value) {
-			var	url = "https://github.com/mkarkaus/" + value;
-			var pad = $('.idgithub').css('padding-top');
-
-			$('<div/>')
-			.css({'font-size':parseInt(pad) * 2,
-					'padding-top':pad,
-					'padding-bottom':pad,
-					'top':-pad,
-					'text':value,
-					'opacity':'0'})
-			.attr('class', 'github-list rm_list')
-			.attr('id', value)
-			.html('<a href="' + url + '">' + value + '</a>')
-			.appendTo('#github');
-			$('#' + value).animate({
-				opacity: 1,
-				top: '-10px'
-			}, (index + 1) * 150);
-		});
+		/* Checks if list has already been opened so that it doesn't create extra divs */
+		if (!($('#' + projects[0]).length))
+		{
+			$('#arrow').finish().animate({
+				opacity: 0,
+				top: '200px'
+			}, 250, () => {
+				$('#arrow').css('top', '10px');
+			});
+			$.each(projects, function(index, value) {
+				var	url = "https://github.com/mkarkaus/" + value;
+				var pad = $('.idgithub').css('padding-top');
+				
+				$('<div/>')
+				.css({'font-size':parseInt(pad) * 2,
+						'padding-top':pad,
+						'padding-bottom':pad,
+						'top':-pad,
+						'text':value,
+						'opacity':'0'})
+				.attr('class', 'github-list rm_list')
+				.attr('id', value)
+				.html('<a href="' + url + '">' + value + '</a>')
+				.appendTo('#github');
+				$('#' + value).finish().animate({
+					opacity: 1,
+					top: '-10px'
+				}, (index + 1) * 150);
+			});
+		}
 	}
 
 	function closelist()
 	{
 		/* Close the list of projects */
 		$.each(projects, function(index, value) {
-			$('#' + value).animate({
-				opacity: 0,
-				top: 0
-			}, (index + 1) * 150);
-			setTimeout(function () {
-				$('#' + value).remove();
-			}, 5 * 150);
+			if ($('#' + value).length)
+			{
+				$('#' + value).animate({
+					opacity: 0,
+					top: 0
+				}, (index + 1) * 150);
+				setTimeout(function () {
+					$('#' + value).remove();
+				}, 5 * 150);
+			}
 		});
-		$('#arrow').animate({
+		$('#arrow').finish().animate({
 			opacity: 1,
 		}, 1000);
 	}
+
 
 	function secondclick()
 	{
