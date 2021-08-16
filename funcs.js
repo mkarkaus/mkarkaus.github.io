@@ -1,67 +1,36 @@
-// function slideIn(id) {
 
-// 	var button;
-	
-// 	button = document.getElementById(id);
-// 	button.style.animation = "links 2s";
-// 	button.style.visibility = "visible";
-// 	button.style.left = "-webkit-calc(48% - 12.5vh)";
-// 	button.style.left = "-moz-calc(48% - 12.5vh)";
-// 	button.style.left = "calc(48% - 12.5vh)";
-// 	button.style.opacity = "1";
-// }
+// var myname;
+// var nameWidth;
 
-// function rotateBckColor() {
-
-// 	var topblock;
-
-// 	topblock = document.getElementById("topbox");
-// 	if (topblock.style.backgroundColor == "rgb(201, 106, 71)" || !topblock.style.backgroundColor)
-// 	{
-// 		topblock.style.animation = "toBlue 1s";
-// 		topblock.style.backgroundColor = "rgb(128, 128, 172)";
-// 	}	
-// 	else
-// 	{
-// 		topblock.style.animation = "toOrange 1s";
-// 		topblock.style.backgroundColor = "rgb(201, 106, 71)";
-// 	}
-
-// }
-
-
-var myname;
-var nameWidth;
-
-myname = document.getElementById('name');
-myname.style.fontSize = "8vh";
-while (window.innerWidth * 0.9 < myname.clientWidth)
-	myname.style.fontSize = (parseFloat(myname.style.fontSize) - 0.1) + "vh";
+// myname = document.getElementById('name');
+// myname.style.fontSize = "8vh";
+// while (window.innerWidth * 0.9 < myname.clientWidth)
+// 	myname.style.fontSize = (parseFloat(myname.style.fontSize) - 0.1) + "vh";
 
 $(document).ready(function() {
 
-	$('#name').click(function() {
+	$('h1').click(function() {
 	
-		$('#name').css("animation", "fadeAway 0.5s");
-		$('#name').css("visibility", "hidden");
+		$('h1').css("animation", "fadeAway 0.5s");
+		$('h1').css("visibility", "hidden");
 		setTimeout(function() {
-			$('#name').css("animation", "moveFromTop 1s");
-			$('#name').css("visibility", "visible");
-			$('#name').html("That's me!");
-			$('#name').css("margin", "-10vh auto auto auto");
+			$('h1').css("animation", "moveFromTop 1s");
+			$('h1').css("visibility", "visible");
+			$('h1').html("That's me!");
+			$('h1').css("margin", "auto auto auto auto");
 		}, 500);
 		setTimeout(function() {backToMiikka();}, 2000);
 	});
 	
 	function backToMiikka()
 	{
-		$('#name').css("animation", "fadeAway 0.5s");
-		$('#name').css("visibility", "hidden");
+		$('h1').css("animation", "fadeAway 0.5s");
+		$('h1').css("visibility", "hidden");
 		setTimeout(function() {
-			$('#name').css("animation", "moveFromTop2 1s");
-			$('#name').css("visibility", "visible");
-			$('#name').html("MIIKKA KARKAUS");
-			$('#name').css("margin", "-10vh auto auto auto");
+			$('h1').css("animation", "moveFromTop2 1s");
+			$('h1').css("visibility", "visible");
+			$('h1').html("MIIKKA KARKAUS");
+			$('h1').css("margin", "auto auto auto auto");
 		}, 500);
 	};
 
